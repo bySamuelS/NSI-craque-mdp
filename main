@@ -1,0 +1,11 @@
+import requests
+compt = 0
+p = requests.get("http://monsieur.k2000.free.fr/exercice/acces.php")
+for i in range(len(mdps)):
+  while p.content == b'<!doctype html> \r\n<html lang="fr"> \r\n\t<head> \r\n\t\t<meta charset="utf-8"> \r\n        <title>Mon formulaire</title>\r\n        <link rel="stylesheet" href="css/style.css" />\r\n\t</head> \r\n\t<body>\r\n    <p>Ah ah ah vous n\'avez pas trouv\xc3\xa9 le mot magique </p>\r\n        <img src=\'img/MdPFail.gif\' />\r\n        <audio  autoplay loop>\r\n        <source src=\'son/magicword.mp3\' type=\'audio/mp3\' />\r\n        </audio>    </body>\r\n</html>':
+    mdp = [i['123456'] for i in mdps]
+    print(mdp[i])
+    p = requests.get("http://monsieur.k2000.free.fr/exercice/acces.php?mot_de_passe="+mdp[i])
+    i=i+1
+    compt+=1
+    print(compt)
